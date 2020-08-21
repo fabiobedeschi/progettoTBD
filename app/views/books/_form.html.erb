@@ -1,0 +1,7 @@
+<%= simple_form_for @book do |f| %>
+  <%= f.input :title %>
+  <%= f.input :plot %>
+  <%= f.input :dop, label: 'Date of publication', as: :string, order: [:day, :month, :year],
+              hint: 'dd/mm/yyyy', input_html: {value: string_date(f.object.dop) || string_date(Date.today) }%>
+  <%= f.button :submit, class: 'btn btn-primary'%>
+<% end %>
