@@ -1,6 +1,6 @@
 class Book < ApplicationRecord
-  has_many :author_books
-  has_many :authors, through: :author_books
+  # Relations
+  belongs_to :author, optional: true
 
   # Data validation
   validates :title, presence: true

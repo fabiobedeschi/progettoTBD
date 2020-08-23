@@ -1,16 +1,16 @@
 <section id="section-author-show">
   <div class="container">
     <div class="row justify-content-between">
-      <div class="col-12 col-md-auto">
+      <div class="col-auto">
         <h1 class="display-1"><%= @author.name %></h1>
       </div>
-      <div class="col-auto text-center">
-        <%= button_to 'Edit Author', edit_author_path(@author), method: 'get', class: 'btn btn-primary mt-md-5' %>
+      <div class="col text-right align-self-center py-2">
+        <%= button_to 'Edit Author', edit_author_path(@author), method: 'get', class: 'btn btn-primary' %>
       </div>
     </div>
     <div class="row">
       <div class="col">
-        <ul class="list-group list-group-horizontal-md justify-content-end">
+        <ul class="list-group list-group-horizontal-md justify-content-end text-right">
           <li class="list-group-item border-0 h3"><%= string_dob_dod @author %></li>
         </ul>
       </div>
@@ -21,5 +21,10 @@
         <p><%= @author.bio %></p>
       </div>
     </div>
+    <% if @author.books.length > 0 %>
+    <hr>
+    <h4>From the author:</h4>
+    <%= render 'books/grid', {books: @author.books}%>
+    <% end %>
   </div>
 </section>

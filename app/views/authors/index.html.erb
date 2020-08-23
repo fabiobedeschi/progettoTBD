@@ -1,23 +1,23 @@
 <section id="section-author-index">
   <div class="container">
     <div class="row justify-content-between">
-      <div class="col-12 col-md-auto">
+      <div class="col-auto">
         <h1 class="display-1">Authors index</h1>
       </div>
-      <div class="col-auto text-center">
-        <%= button_to 'Add Author', new_author_path, method: 'get', class: 'btn btn-primary mt-md-5' %>
+      <div class="col text-right align-self-center">
+        <%= button_to 'Add Author', new_author_path, method: 'get', class: 'btn btn-primary' %>
       </div>
     </div>
     <hr>
     <div class="row">
       <% count = 1 %>
       <% @authors.each do |author| %>
-        <div class="col col-md-6 my-1">
+        <div class="col col-md-6 my-2">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title"><%= link_to author.name, author %></h5>
-              <div class="row">
-                <h6 class="card-subtitle mb-1 col text-right"><%= string_dob_dod author %></h6>
+              <h4 class="card-title"><%= link_to author.name, author %></h4>
+              <div class="row justify-content-end">
+                <h6 class="card-subtitle mb-1 col-auto"><%= string_dob_dod author %></h6>
               </div>
               <p class="card-text text-truncate"><%= author.bio %></p>
             </div>

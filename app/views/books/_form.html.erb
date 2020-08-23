@@ -1,5 +1,6 @@
 <%= simple_form_for @book do |f| %>
   <%= f.input :title %>
+  <%= f.association :author, collection: Author.all.order(:name)%>
   <%= f.input :plot, input_html: {rows: 4} %>
   <%= f.input :dop, label: 'Date of publication', as: :string, order: [:day, :month, :year],
               hint: 'dd/mm/yyyy', input_html: {value: string_date(f.object.dop) || string_date(Date.today) }%>
