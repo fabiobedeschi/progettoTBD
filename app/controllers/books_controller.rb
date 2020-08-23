@@ -2,7 +2,7 @@ class BooksController < ApplicationController
   before_action :find_book, only: %i[show edit update destroy]
 
   def index
-    @books = Book.all.order created_at: :desc
+    @books = Book.all.order dop: :desc
   end
 
   def show; end
@@ -17,7 +17,7 @@ class BooksController < ApplicationController
       # Show book just added
       redirect_to @book
     else
-      render 'new'
+      render 'books/new'
     end
   end
 
@@ -28,7 +28,7 @@ class BooksController < ApplicationController
       # Show book just edited
       redirect_to @book
     else
-      render 'edit'
+      render 'books/edit'
     end
   end
 

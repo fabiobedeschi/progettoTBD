@@ -1,0 +1,9 @@
+<%= simple_form_for @author do |f| %>
+  <%= f.input :name %>
+  <%= f.input :bio, input_html: {rows: 4} %>
+  <%= f.input :dob, label: 'Date of birth', as: :string, order: [:day, :month, :year], hint: 'Leave blank for nil',
+              placeholder: 'dd/mm/yyyy', input_html: {value: string_date(f.object.dob) || string_date(30.years.ago) }%>
+  <%= f.input :dod, label: 'Date of death', as: :string, order: [:day, :month, :year], hint: 'Leave blank for nil',
+              placeholder: 'dd/mm/yyyy', input_html: {value: string_date(f.object.dod) || nil }%>
+  <%= f.button :submit, class: 'btn btn-primary'%>
+<% end %>
