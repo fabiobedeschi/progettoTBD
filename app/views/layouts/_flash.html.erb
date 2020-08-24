@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="row">
+    <% flash.each do |key, value| %>
+      <% cls = key == 'error' ? 'danger' : 'info' %>
+      <div class="col-12 p-2">
+        <%= content_tag :div, value, class: "alert alert-#{cls} m-0 text-center" %>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -59,3 +59,5 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 # Others
 gem 'simple_form'
 
+# User auth
+gem 'bcrypt'

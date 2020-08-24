@@ -1,0 +1,28 @@
+<section id="section-home-index">
+  <div class="container">
+    <div class="row justify-content-between">
+      <div class="col-auto">
+        <h1 class="display-1">Home index</h1>
+        <p class="h5">In order to use this site you need to authenticate.</p>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-12 col-lg-2">
+        <h4 class="mb-4">Sign Up</h4>
+      </div>
+      <div class="col">
+        <%= render 'users/form' %>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-12 col-lg-2">
+        <h4 class="mb-4">Sign In</h4>
+      </div>
+      <div class="col">
+        <%= render 'sessions/form' %>
+      </div>
+    </div>
+  </div>
+</section>

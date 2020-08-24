@@ -1,0 +1,18 @@
+<section id="section-user-new">
+  <div class="container">
+    <div class="row justify-content-between">
+      <div class="col-12 col-md">
+        <h1 class="display-1">Sign Up</h1>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col">
+        <%= render 'users/form' %>
+        <p class="mt-4">
+          Already have an account? <%= link_to 'Click here to sign in.', login_path %>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

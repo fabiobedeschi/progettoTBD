@@ -1,0 +1,6 @@
+<%= simple_form_for @user do |f| %>
+  <%= f.input :username, required: true%>
+  <%= f.input :password, required: true %>
+  <%= f.input :password_confirmation, required: true %>
+  <%= f.button :submit, 'Sign Up', class: 'btn btn-primary'%>
+<% end %>
