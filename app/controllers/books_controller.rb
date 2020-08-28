@@ -5,7 +5,9 @@ class BooksController < ApplicationController
     @books = Book.all.order dop: :desc
   end
 
-  def show; end
+  def show
+    # @comment = Comment.new
+  end
 
   def new
     @book = Book.new

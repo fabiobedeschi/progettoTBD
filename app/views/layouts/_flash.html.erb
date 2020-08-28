@@ -1,9 +1,15 @@
 <div class="container">
   <div class="row">
+    <%
+      classes = {
+        'error' => 'danger',
+        'success' => 'success'
+      }
+      fallback = 'info'
+    %>
     <% flash.each do |key, value| %>
-      <% cls = key == 'error' ? 'danger' : 'info' %>
       <div class="col-12 p-2">
-        <%= content_tag :div, value, class: "alert alert-#{cls} m-0 text-center" %>
+        <%= content_tag :div, value, class: "alert alert-#{classes[key] || fallback} m-0 text-center" %>
       </div>
     <% end %>
   </div>

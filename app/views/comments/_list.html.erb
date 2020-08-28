@@ -1,0 +1,17 @@
+<% comments.each do |comment| %>
+<div class="card my-2">
+  <div class="card-body">
+    <div class="row">
+      <h5 class="card-title col"><%= comment.user.username %></h5>
+      <% if comment.user.id == @user.id %>
+        <div class="col-auto">
+          <%= link_to '', [comment.book, comment],
+                      method: :delete, data: {confirm: "Are you sure?"},
+                      class: 'btn btn-danger fas fa-times'%>
+        </div>
+      <% end %>
+      <p class="card-text mt-1 col-12"><%= comment.text %></p>
+    </div>
+  </div>
+</div>
+<% end %>

@@ -7,13 +7,16 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <!-- Font-Awesome kit -->
+    <script src="https://kit.fontawesome.com/57a69c88ce.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
     <%= render 'layouts/header' %>
     <%= render 'layouts/flash' %>
 
-    <main id="main">
+    <main id="main" class="container">
       <%= yield %>
     </main>
   </body>

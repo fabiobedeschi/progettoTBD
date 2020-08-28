@@ -1,5 +1,5 @@
 <section id="section-author-show">
-  <div class="container">
+<!--  <div class="container">-->
     <div class="row justify-content-between">
       <div class="col-auto">
         <h1 class="display-1"><%= @author.name %></h1>
@@ -21,10 +21,14 @@
         <p><%= @author.bio %></p>
       </div>
     </div>
-    <% if @author.books.length > 0 %>
+
+    <% if @author.books.size > 0 %>
     <hr>
-    <h4>From the author:</h4>
-    <%= render 'books/grid', {books: @author.books}%>
+    <div class="row">
+      <h4 class="col-12">From the author:</h4>
+      <%= render 'books/grid', {books: @author.books}%>
+    </div>
     <% end %>
-  </div>
+
+<!--  </div>-->
 </section>

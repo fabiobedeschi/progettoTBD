@@ -1,24 +1,24 @@
-<div class="row">
-  <% count = 1 %>
-  <% books.each do |book| %>
-    <div class="col col-md-6 my-2">
-      <div class="card">
-        <div class="card-body">
-          <h4 class="card-title"><%= link_to book.title, book %></h4>
-          <div class="row justify-content-between">
-            <h6 class="card-subtitle mb-1 col-auto font-italic">
-              <%= book.author.nil? ? 'Unknown author' : (link_to book.author.name, book.author) %>
-            </h6>
-            <h6 class="card-subtitle mb-1 col-auto"><%= string_dop book %></h6>
-          </div>
-          <p class="card-text text-truncate"><%= book.plot %></p>
+<!--<div class="row">-->
+<% count = 1 %>
+<% books.each do |book| %>
+  <div class="col col-md-6 my-2">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title"><%= link_to book.title, book %></h4>
+        <div class="row justify-content-between">
+          <h6 class="card-subtitle mb-1 col-auto font-italic">
+            <%= book.author.nil? ? 'Unknown author' : (link_to book.author.name, book.author) %>
+          </h6>
+          <h6 class="card-subtitle mb-1 col-auto"><%= string_dop book %></h6>
         </div>
+        <p class="card-text text-truncate"><%= book.plot %></p>
       </div>
     </div>
-    <% if count % 2 == 0 %>
-      <div class="w-100"></div>
-    <% else %>
-      <div class="w-100 d-md-none"></div>
-    <% end; count+=1 %>
-  <% end %>
-</div>
+  </div>
+  <% if count % 2 == 0 %>
+    <div class="w-100"></div>
+  <% else %>
+    <div class="w-100 d-md-none"></div>
+  <% end; count+=1 %>
+<% end %>
+<!--</div>-->
