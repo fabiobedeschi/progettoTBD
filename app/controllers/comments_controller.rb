@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment = @book.comments.find(params[:id])
-    flash[:error] = "This comment can't be deleted." unless !can_destroy? || @comment.destroy
+    flash[:error] = "This comment can't be deleted." unless can_destroy? && @comment.destroy
     redirect_to @book
   end
 
@@ -25,7 +25,7 @@ class CommentsController < ApplicationController
   end
 
   def can_destroy?
-    @comment.user_id == current_user.id
+    @user.is_admin || @comment.user_id == current_user.id
   end
 
 end

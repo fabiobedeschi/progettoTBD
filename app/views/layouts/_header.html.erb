@@ -19,8 +19,9 @@
       <span class="navbar-text w-100">
         <div class="row justify-content-end">
           <div class="col-auto align-self-center">
-            <span class="badge badge-secondary">
-            Logged as <%= @user.username %>
+            <% cls = @user.is_admin ? 'primary' : 'secondary' %>
+            <span class="badge badge-<%=cls%>">
+              <%= @user.is_admin ? @user.username + ' (admin)' : @user.username %>
             </span>
           </div>
           <div class="col-auto">

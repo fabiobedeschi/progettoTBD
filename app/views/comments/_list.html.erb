@@ -3,7 +3,7 @@
   <div class="card-body">
     <div class="row">
       <h5 class="card-title col"><%= comment.user.username %></h5>
-      <% if comment.user.id == @user.id %>
+      <% if @user.is_admin || comment.user.id == @user.id%>
         <div class="col-auto">
           <%= link_to '', [comment.book, comment],
                       method: :delete, data: {confirm: "Are you sure?"},
