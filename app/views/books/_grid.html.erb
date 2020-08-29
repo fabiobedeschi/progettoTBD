@@ -1,7 +1,6 @@
-<!--<div class="row">-->
 <% count = 1 %>
 <% books.each do |book| %>
-  <div class="col col-md-6 my-2">
+  <div class="col col-lg-6 my-2">
     <div class="card">
       <div class="card-body">
         <h4 class="card-title"><%= link_to book.title, book %></h4>
@@ -21,4 +20,3 @@
     <div class="w-100 d-md-none"></div>
   <% end; count+=1 %>
 <% end %>
-<!--</div>-->

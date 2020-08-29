@@ -1,0 +1,16 @@
+<section id="section-library-edit-books">
+  <div class="row justify-content-between">
+    <div class="col-12 col-md">
+      <h1 class="display-1">Edit library books</h1>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col">
+      <%= simple_form_for @library do |f| %>
+        <%= f.association :books, label: '', collection: Book.all.order('title'), as: :check_boxes%>
+        <%= f.button :submit, class: 'btn btn-primary'%>
+      <% end %>
+    </div>
+  </div>
+</section>

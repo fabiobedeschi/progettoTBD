@@ -1,15 +1,20 @@
 Rails.application.routes.draw do
+  resources :libraries
   resources :comments
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  root 'home#index'
-
-  get 'login', to: 'sessions#new'
-  get 'logout', to: 'sessions#destroy'
+  root 'home#show'
 
   resources :books do
     resources :comments
   end
   resources :authors
+  resources :libraries do
+    get 'edit_books', on: :member
+  end
   resources :users, only: [:new, :create]
   resources :sessions, only: [:create]
+
+  get 'sign_up', to: 'users#new'
+  get 'sign_in', to: 'sessions#new'
+  get 'logout', to: 'sessions#destroy'
 end

@@ -1,0 +1,23 @@
+<section id="section-library-show">
+  <div class="row justify-content-between">
+    <div class="col-auto">
+      <h1 class="display-1">Library of <span class="font-italic"><%= @library.user.username%></span></h1>
+    </div>
+  </div>
+
+  <% books_count = @library.books.size %>
+  <hr>
+  <div class="row">
+    <div class="col-auto align-self-center">
+      <h4><%=books_count%> <%=books_count == 1 ? 'book' : 'books'%> saved:</h4>
+    </div>
+    <% if @library.id == @user.library.id %>
+    <div class="col text-right align-self-center py-2">
+      <%= link_to 'Edit Books', edit_books_library_path(@library), class: 'btn btn-primary' %>
+    </div>
+    <% end %>
+    <div class="w-100"></div>
+    <%= render 'books/grid', {books: @library.books} %>
+  </div>
+
+</section>

@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.library = Library.new
     if @user.save
       session[:user_id] = @user.id
       flash[:success] = 'You have successfully created an account! Thank you for signing up!'
@@ -17,7 +18,9 @@ class UsersController < ApplicationController
     end
   end
 
-  def destroy; end
+  def destroy
+    # TODO: remove user and library
+  end
 
   private
 

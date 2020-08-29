@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
       redirect_to root_path
     else
       flash[:error] = 'Invalid username/password combination'
-      redirect_to login_path
+      redirect_to sign_in_path
     end
   end
 
