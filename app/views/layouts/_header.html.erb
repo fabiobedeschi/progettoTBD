@@ -23,9 +23,11 @@
         <div class="row justify-content-end">
           <div class="col-auto align-self-center">
             <% cls = @user.is_admin ? 'primary' : 'secondary' %>
-            <span class="badge badge-<%=cls%>">
-              <%= @user.is_admin ? @user.username + ' (admin)' : @user.username %>
-            </span>
+<!--            <span class="badge badge-<%#=cls%>">-->
+              <%= link_to (@user.is_admin ? @user.username + ' (admin)' : @user.username),
+                          library_path(@user.library), class: "badge badge-#{cls} color-white"%>
+              <%#= @user.is_admin ? @user.username + ' (admin)' : @user.username %>
+<!--            </span>-->
           </div>
           <div class="col-auto">
             <%= link_to 'Logout', logout_path%>

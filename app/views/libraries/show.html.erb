@@ -20,4 +20,19 @@
     <%= render 'books/grid', {books: @library.books} %>
   </div>
 
+  <% authors_count = @library.authors.size %>
+  <hr>
+  <div class="row">
+    <div class="col-auto align-self-center">
+      <h4><%=authors_count%> <%=authors_count == 1 ? 'author' : 'authors'%> saved:</h4>
+    </div>
+    <% if @library.id == @user.library.id %>
+      <div class="col text-right align-self-center py-2">
+        <%= link_to 'Edit Authors', edit_authors_library_path(@library), class: 'btn btn-primary' %>
+      </div>
+    <% end %>
+    <div class="w-100"></div>
+    <%= render 'authors/grid', {authors: @library.authors} %>
+  </div>
+
 </section>

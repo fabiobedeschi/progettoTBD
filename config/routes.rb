@@ -8,8 +8,11 @@ Rails.application.routes.draw do
     resources :comments
   end
   resources :authors
-  resources :libraries do
+  resources :libraries, only: [:show] do
+    get 'edit_authors', on: :member
+    patch 'update_authors', on: :member
     get 'edit_books', on: :member
+    patch 'update_books', on: :member
   end
   resources :users, only: [:new, :create]
   resources :sessions, only: [:create]

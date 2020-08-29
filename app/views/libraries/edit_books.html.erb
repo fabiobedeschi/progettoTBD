@@ -7,7 +7,7 @@
   <hr>
   <div class="row">
     <div class="col">
-      <%= simple_form_for @library do |f| %>
+      <%= simple_form_for @library, url: update_books_library_path(@library) do |f| %>
         <%= f.association :books, label: '', collection: Book.all.order('title'), as: :check_boxes%>
         <%= f.button :submit, class: 'btn btn-primary'%>
       <% end %>
