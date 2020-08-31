@@ -8,7 +8,7 @@
           <h6 class="card-subtitle mb-1 col-auto font-italic">
             <%= book.author.nil? ? 'Unknown author' : (link_to book.author.name, book.author) %>
           </h6>
-          <h6 class="card-subtitle mb-1 col-auto"><%= string_dop book %></h6>
+          <h6 class="card-subtitle mb-1 col-auto"><%= string_year(book) %></h6>
         </div>
         <p class="card-text text-truncate"><%= book.plot %></p>
       </div>

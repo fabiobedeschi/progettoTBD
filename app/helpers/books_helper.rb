@@ -1,5 +1,5 @@
 module BooksHelper
-  def string_dop(book)
-    book.dop.nil? ? 'Unknown date of pubblication' : string_date(book.dop)
+  def string_year(book)
+    book.year.nil? ? 'Unknown year of publication' : book.year.to_s
   end
 end

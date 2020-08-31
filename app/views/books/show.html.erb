@@ -13,7 +13,7 @@
           <li class="list-group-item border-0 h3">
             <%= @book.author.nil? ? 'Unknown author' : (link_to @book.author.name, @book.author) %>
           </li>
-          <li class="list-group-item border-0 h3"><%= string_dop(@book) %></li>
+          <li class="list-group-item border-0 h3"><%= string_year(@book) %></li>
         </ul>
       </div>
     </div>
@@ -34,7 +34,7 @@
       <% if comm_count > 0 %>
         <div class="col-12 mt-4 order-last">
           <h4><%= comm_count %> <%= comm_count == 1 ? 'comment:' : 'comments:' %></h4>
-          <%= render 'comments/list', {comments: @book.comments.order('created_at DESC')} %>
+          <%= render 'comments/list', {comments: @book.comments} %>
         </div>
       <% end %>
 

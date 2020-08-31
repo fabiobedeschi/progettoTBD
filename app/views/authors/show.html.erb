@@ -1,34 +1,32 @@
 <section id="section-author-show">
-<!--  <div class="container">-->
-    <div class="row justify-content-between">
-      <div class="col-auto">
-        <h1 class="display-1"><%= @author.name %></h1>
-      </div>
-      <div class="col text-right align-self-center py-2">
-        <%= button_to 'Edit Author', edit_author_path(@author), method: 'get', class: 'btn btn-primary' %>
-      </div>
+  <div class="row justify-content-between">
+    <div class="col-auto">
+      <h1 class="display-1"><%= @author.name %></h1>
     </div>
-    <div class="row">
-      <div class="col">
-        <ul class="list-group list-group-horizontal-md justify-content-end text-right">
-          <li class="list-group-item border-0 h3"><%= string_dob_dod @author %></li>
-        </ul>
-      </div>
+    <div class="col text-right align-self-center py-2">
+      <%= button_to 'Edit Author', edit_author_path(@author), method: 'get', class: 'btn btn-primary' %>
     </div>
-    <hr>
-    <div class="row">
-      <div class="col">
-        <p><%= @author.bio %></p>
-      </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <ul class="list-group list-group-horizontal-md justify-content-end text-right">
+        <li class="list-group-item border-0 h3"><%= string_dob_dod @author %></li>
+      </ul>
     </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col">
+      <p><%= @author.bio %></p>
+    </div>
+  </div>
 
-    <% if @author.books.size > 0 %>
-    <hr>
-    <div class="row">
-      <h4 class="col-12">From the author:</h4>
-      <%= render 'books/grid', {books: @author.books}%>
-    </div>
-    <% end %>
+  <% if @author.books.size > 0 %>
+  <hr>
+  <div class="row">
+    <h4 class="col-12">From the author:</h4>
+    <%= render 'books/grid', {books: @author.books}%>
+  </div>
+  <% end %>
 
-<!--  </div>-->
 </section>

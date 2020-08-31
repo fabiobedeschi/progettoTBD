@@ -1,17 +1,15 @@
 <section id="section-author-edit">
-<!--  <div class="container">-->
-    <div class="row justify-content-between">
-      <div class="col-12 col-md">
-        <h1 class="display-1">Edit author</h1>
-      </div>
+  <div class="row justify-content-between">
+    <div class="col-12 col-md">
+      <h1 class="display-1">Edit author</h1>
     </div>
-    <hr>
-    <div class="row">
-      <div class="col">
-        <%= render 'form' %>
-        <%= button_to 'Delete Author', author_path(@author), method: :delete, data: {confirm: "Are you sure?"},
-                      class: 'btn btn-danger mt-1'%>
-      </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col">
+      <%= render 'authors/form' %>
+      <%= button_to 'Delete Author', author_path(@author), method: :delete, data: {confirm: "Are you sure?"},
+                    class: 'btn btn-danger mt-1'%>
     </div>
-<!--  </div>-->
+  </div>
 </section>

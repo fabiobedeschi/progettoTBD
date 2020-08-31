@@ -2,12 +2,10 @@ class BooksController < ApplicationController
   before_action :find_book, only: %i[show edit update destroy]
 
   def index
-    @books = Book.all.order dop: :desc
+    @books = Book.all
   end
 
-  def show
-    # @comment = Comment.new
-  end
+  def show; end
 
   def new
     @book = Book.new

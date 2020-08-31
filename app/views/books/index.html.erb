@@ -1,19 +1,16 @@
 <section id="section-book-index">
-<!--  <div class="container">-->
-    <div class="row justify-content-between">
-      <div class="col-auto">
-        <h1 class="display-1">Books index</h1>
-      </div>
-      <div class="col text-right align-self-center">
-        <%= link_to 'New Book', new_book_path, method: 'get', class: 'btn btn-primary' %>
-      </div>
+  <div class="row justify-content-between">
+    <div class="col-auto">
+      <h1 class="display-1">Books index</h1>
     </div>
-
-    <hr>
-
-    <div class="row">
-      <%= render 'books/grid', {books: @books}%>
+    <div class="col text-right align-self-center">
+      <%= link_to 'New Book', new_book_path, method: 'get', class: 'btn btn-primary' %>
     </div>
+  </div>
 
-<!--  </div>-->
+  <hr>
+
+  <div class="row">
+    <%= render 'books/grid', {books: @books}%>
+  </div>
 </section>
