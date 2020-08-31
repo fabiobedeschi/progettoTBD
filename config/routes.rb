@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     get 'edit_books', on: :member
     patch 'update_books', on: :member
   end
-  resources :users, only: [:new, :create]
+  resources :users, only: [:new, :create, :update, :destroy]
   resources :sessions, only: [:create]
 
   get 'sign_up', to: 'users#new'

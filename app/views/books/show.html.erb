@@ -18,7 +18,7 @@
       </div>
     </div>
 
-    <% unless @book.plot.nil? %>
+    <% unless @book.plot.nil? || @book.plot <=> ''%>
     <hr>
     <div class="row">
       <div class="col">

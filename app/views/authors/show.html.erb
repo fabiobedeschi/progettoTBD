@@ -14,12 +14,14 @@
       </ul>
     </div>
   </div>
+  <% unless @author.bio.nil? || @author.bio <=> ''%>
   <hr>
   <div class="row">
     <div class="col">
       <p><%= @author.bio %></p>
     </div>
   </div>
+  <% end %>
 
   <% if @author.books.size > 0 %>
   <hr>
