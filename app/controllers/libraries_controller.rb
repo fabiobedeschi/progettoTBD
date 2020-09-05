@@ -2,6 +2,10 @@ class LibrariesController < ApplicationController
   before_action :find_library, only: %i[show]
   before_action :user_library, only: %i[edit_authors edit_books update_authors update_books]
 
+  def index
+    @libraries = Library.all.order('updated_at DESC')
+  end
+
   def show; end
 
   def edit_authors; end

@@ -1,7 +1,7 @@
 <section id="section-author-index">
     <div class="row justify-content-between">
       <div class="col-auto">
-        <h1 class="display-1">Authors index</h1>
+        <%= render 'layouts/display_title', {title: 'Authors index'} %>
       </div>
       <div class="col text-right align-self-center">
         <%= link_to 'New Author', new_author_path, method: 'get', class: 'btn btn-primary' %>

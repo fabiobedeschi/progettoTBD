@@ -1,7 +1,7 @@
 <%= simple_form_for @book do |f| %>
   <%= f.input :title %>
   <%= f.association :author, collection: Author.all, include_blank: 'Unknown author'%>
-  <%= f.input :plot, input_html: {rows: 4} %>
+  <%= f.input :plot, input_html: {rows: 8} %>
   <%= f.input :year, label: 'Year of publication',input_html: {value: f.object.year || nil },
               hint: 'Leave blank if unknown'%>
   <%= f.button :submit, class: 'btn btn-primary'%>

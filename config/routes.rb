@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  resources :libraries
-  resources :comments
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root 'home#show'
 
@@ -8,7 +6,7 @@ Rails.application.routes.draw do
     resources :comments
   end
   resources :authors
-  resources :libraries, only: [:show] do
+  resources :libraries, only: [:index, :show] do
     get 'edit_authors', on: :member
     patch 'update_authors', on: :member
     get 'edit_books', on: :member

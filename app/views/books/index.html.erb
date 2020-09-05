@@ -1,7 +1,7 @@
 <section id="section-book-index">
   <div class="row justify-content-between">
     <div class="col-auto">
-      <h1 class="display-1">Books index</h1>
+      <%= render 'layouts/display_title', {title: 'Books index'} %>
     </div>
     <div class="col text-right align-self-center">
       <%= link_to 'New Book', new_book_path, method: 'get', class: 'btn btn-primary' %>

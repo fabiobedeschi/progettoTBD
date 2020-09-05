@@ -1,5 +1,5 @@
 class Comment < ApplicationRecord
-  default_scope { order(:created_at) }
+  default_scope { order('created_at desc') }
 
   belongs_to :book, optional: false
   belongs_to :user, optional: false

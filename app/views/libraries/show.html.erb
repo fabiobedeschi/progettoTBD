@@ -1,7 +1,7 @@
 <section id="section-library-show">
   <div class="row justify-content-between">
     <div class="col-auto">
-      <h1 class="display-1">Library of <span class="font-weight-normal"><%= @library.user.username%></span></h1>
+      <%= render 'layouts/display_title', {title: "Library of #{@library.user.username}"} %>
     </div>
     <div class="w-100 d-lg-none"></div>
     <div class="col align-self-center">

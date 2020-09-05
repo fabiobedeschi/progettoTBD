@@ -16,6 +16,10 @@
 
 @import "bootstrap/scss/bootstrap";
 
+main {
+  padding-bottom: 1.5rem;
+}
+
 //Disable safari gloss effect
 select {
  -webkit-appearance: none;

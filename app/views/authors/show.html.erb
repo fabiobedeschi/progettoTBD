@@ -1,7 +1,7 @@
 <section id="section-author-show">
   <div class="row justify-content-between">
     <div class="col-auto">
-      <h1 class="display-1"><%= @author.name %></h1>
+      <%= render 'layouts/display_title', {title: @author.name} %>
     </div>
     <div class="col text-right align-self-center py-2">
       <%= button_to 'Edit Author', edit_author_path(@author), method: 'get', class: 'btn btn-primary' %>
@@ -14,7 +14,7 @@
       </ul>
     </div>
   </div>
-  <% unless @author.bio.nil? || @author.bio <=> ''%>
+  <% unless @author.bio.nil? || @author.bio.blank?%>
   <hr>
   <div class="row">
     <div class="col">

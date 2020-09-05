@@ -1,7 +1,7 @@
 <section id="section-book-show">
     <div class="row justify-content-between">
       <div class="col-auto">
-        <h1 class="display-1"><%= @book.title %></h1>
+        <%= render 'layouts/display_title', {title: @book.title} %>
       </div>
       <div class="col text-right align-self-center py-2">
         <%= button_to 'Edit Book', edit_book_path(@book), method: 'get', class: 'btn btn-primary' %>
@@ -18,11 +18,11 @@
       </div>
     </div>
 
-    <% unless @book.plot.nil? || @book.plot <=> ''%>
+    <% unless @book.plot.nil? || @book.plot.blank? %>
     <hr>
     <div class="row">
       <div class="col">
-        <p><%= @book.plot %></p>
+        <p><%=  @book.plot  %></p>
       </div>
     </div>
     <% end %>
@@ -39,7 +39,7 @@
       <% end %>
 
       <div class="col-12 col-lg-2 order-first">
-        <h4 class="mb-3 mb-lg-auto">Leave a new comment</h4>
+        <h4 class="mb-3 mb-lg-auto">Leave a comment:</h4>
       </div>
       <div class="col order-1">
         <%= render 'comments/form' %>
