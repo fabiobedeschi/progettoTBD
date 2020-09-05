@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-  skip_before_action :require_valid_user!, except: [:update, :destroy]
-  before_action :find_user, only: [:update, :destroy]
-  before_action :reset_session, except: [:update]
+  skip_before_action :require_valid_user!, except: %i[update destroy]
+  before_action :find_user, only: %i[update destroy]
+  before_action :reset_session, except: %i[update destroy]
 
   def new
     @user = User.new
@@ -20,12 +20,15 @@ class UsersController < ApplicationController
   end
 
   def update
-    flash[:error] = 'Cannot update this user!' unless @user.update(is_admin: true)
-    redirect_to current_user.library
+    if @user.update(is_admin: true)
+      flash[:success] = 'User promoted!'
+    else
+      flash[:error] = 'Cannot update this user!'
+    end
+    redirect_to @user.library
   end
 
   def destroy
-    # TODO: remove user and library
     flash[:error] = 'Cannot delete this user!' unless destroy_user_and_library
     redirect_to root_path
   end

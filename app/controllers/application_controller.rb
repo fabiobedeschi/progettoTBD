@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user, :logged_in?
 
   def current_user
-    @user ||= User.find(session[:user_id]) unless session[:user_id].blank?
+    @user = User.find_by_id(session[:user_id]) unless session[:user_id].blank?
   end
 
   def logged_in?

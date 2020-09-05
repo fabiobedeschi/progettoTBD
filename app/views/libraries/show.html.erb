@@ -1,20 +1,25 @@
 <section id="section-library-show">
   <div class="row justify-content-between">
     <div class="col-auto">
-      <h1 class="display-1">Library of <span class="font-italic"><%= @library.user.username%></span></h1>
+      <h1 class="display-1">Library of <span class="font-weight-normal"><%= @library.user.username%></span></h1>
     </div>
-    <% if @user.is_admin && !@library.user.is_admin %>
-      <div class="col-auto text-right align-self-center py-2">
-        <%= link_to 'Promote User', user_path(@library.user), method: :put, data: {confirm: 'Are you sure?'},
-                    class: 'btn btn-success'%>
+    <div class="w-100 d-lg-none"></div>
+    <div class="col align-self-center">
+      <div class="row justify-content-end">
+        <% if @user.is_admin && !@library.user.is_admin %>
+          <div class="col-auto py-2">
+            <%= link_to 'Promote User', user_path(@library.user), method: :put, data: {confirm: 'Are you sure?'},
+                        class: 'btn btn-success'%>
+          </div>
+        <% end %>
+        <% if @user.is_admin || @library.user.id == @user.id%>
+          <div class="col-auto py-2">
+            <%= link_to 'Delete User', user_path(@library.user), method: :delete, data: {confirm: 'Are you sure?'},
+                        class: 'btn btn-danger'%>
+          </div>
+        <% end %>
       </div>
-    <% end %>
-    <% if @user.is_admin || @library.user.id == @user.id%>
-      <div class="col-auto text-right align-self-center py-2">
-        <%= link_to 'Delete User', user_path(@library.user), method: :delete, data: {confirm: 'Are you sure?'},
-                    class: 'btn btn-danger'%>
-      </div>
-    <% end %>
+    </div>
   </div>
 
   <% books_count = @library.books.size %>
