@@ -2,7 +2,7 @@ class AuthorsController < ApplicationController
   before_action :find_author, only: %i[show edit update destroy]
 
   def index
-    @authors = Author.ordered(params[:order])
+    @authors = Author.ordered(params[:a_order], params[:a_ad])
   end
 
   def show; end

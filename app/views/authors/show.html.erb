@@ -27,7 +27,7 @@
   <hr>
   <div class="row">
     <h3 class="col-12">From this author:</h3>
-    <%= render 'books/grid', {books: @author.books.ordered(params[:order], params[:ad])}%>
+    <%= render 'books/grid', {books: @author.books.ordered(params[:b_order], params[:b_ad])}%>
   </div>
   <% end %>
 

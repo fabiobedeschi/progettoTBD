@@ -34,7 +34,7 @@
     </div>
     <% end %>
     <div class="w-100"></div>
-    <%= render 'books/grid', {books: @library.books.ordered(params[:order], params[:ad])} %>
+    <%= render 'books/grid', {books: @library.books.ordered(params[:b_order], params[:b_ad])} %>
   </div>
 
   <% authors_count = @library.authors.size %>
@@ -49,7 +49,7 @@
       </div>
     <% end %>
     <div class="w-100"></div>
-    <%= render 'authors/grid', {authors: @library.authors} %>
+    <%= render 'authors/grid', {authors: @library.authors.ordered(params[:a_order], params[:a_ad])} %>
   </div>
 
 </section>

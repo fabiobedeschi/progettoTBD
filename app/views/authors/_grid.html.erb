@@ -1,19 +1,38 @@
-<% count = 1 %>
-<% authors.each do |author| %>
-  <div class="col col-lg-6 my-2">
-    <div class="card">
-      <div class="card-body">
-        <h4 class="card-title"><%= link_to author.name, author %></h4>
-        <div class="row justify-content-end">
-          <h6 class="card-subtitle mb-1 col-auto"><%= string_dob_dod author %></h6>
+<% if authors.size > 0 %>
+  <div class="col-auto">
+    <nav class="nav nav-pills">
+      <a class="nav-link disabled" aria-disabled="true">Order by:</a>
+      <%= link_to 'Name', params.merge(a_order: 'name', a_ad: 'asc', b_order: params[:b_order], b_ad: params[:b_ad]).permit(:a_order, :a_ad, :b_order, :b_ad, :id), class: "nav-link"%>
+      <%= link_to 'Date of birth', params.merge(a_order: 'dob', a_ad: 'asc', b_order: params[:b_order], b_ad: params[:b_ad]).permit(:a_order, :a_ad, :b_order, :b_ad, :id), class: "nav-link" %>
+      <%= link_to 'Last added', params.merge(a_order: 'created_at', a_ad: 'desc', b_order: params[:b_order], b_ad: params[:b_ad]).permit(:a_order, :a_ad, :b_order, :b_ad, :id), class: "nav-link" %>
+      <%= link_to 'Last updated', params.merge(a_order: 'updated_at', a_ad: 'desc', b_order: params[:b_order], b_ad: params[:b_ad]).permit(:a_order, :a_ad, :b_order, :b_ad, :id), class: "nav-link" %>
+    </nav>
+  </div>
+
+  <div class="col mr-3 text-right align-self-center">
+    <% (val, cls) = (params[:a_ad].eql? 'asc') ? %w[desc down] : %w[asc down-alt]%>
+    <%= link_to '', params.merge(a_order: params[:a_order], a_ad: val, b_order: params[:b_order], b_ad: params[:b_ad]).permit(:a_order, :a_ad, :b_order, :b_ad, :id), class: "fas fa-sort-alpha-#{cls}"%>
+  </div>
+
+  <div class="w-100"></div>
+
+  <% count = 1 %>
+  <% authors.each do |author| %>
+    <div class="col col-lg-6 my-2">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title"><%= link_to author.name, author %></h4>
+          <div class="row justify-content-end">
+            <h6 class="card-subtitle mb-1 col-auto"><%= string_dob_dod author %></h6>
+          </div>
+          <p class="card-text text-truncate"><%= author.bio %></p>
         </div>
-        <p class="card-text text-truncate"><%= author.bio %></p>
       </div>
     </div>
-  </div>
-  <% if count % 2 == 0 %>
-    <div class="w-100"></div>
-  <% else %>
-    <div class="w-100 d-lg-none"></div>
-  <% end; count+=1 %>
+    <% if count % 2 == 0 %>
+      <div class="w-100"></div>
+    <% else %>
+      <div class="w-100 d-lg-none"></div>
+    <% end; count+=1 %>
+  <% end %>
 <% end %>

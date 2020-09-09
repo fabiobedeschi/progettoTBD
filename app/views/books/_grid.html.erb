@@ -1,17 +1,17 @@
 <% if books.size > 0 %>
   <div class="col-auto">
-    <nav class="nav nav-pills" id="order-by">
+    <nav class="nav nav-pills">
       <a class="nav-link disabled" aria-disabled="true">Order by:</a>
-      <%= link_to 'Title', params.merge(order: 'title', ad: 'asc').permit(:order, :ad), class: "nav-link"%>
-      <%= link_to 'Year', params.merge(order: 'year', ad: 'asc').permit(:order, :ad), class: "nav-link" %>
-      <%= link_to 'Last added', params.merge(order: 'created_at', ad: 'desc').permit(:order, :ad), class: "nav-link" %>
-      <%= link_to 'Last updated', params.merge(order: 'updated_at', ad: 'desc').permit(:order, :ad), class: "nav-link" %>
+      <%= link_to 'Title', params.merge(a_order: params[:a_order], a_ad: params[:a_ad], b_order: 'title', b_ad: 'asc').permit(:a_order, :a_ad, :b_order, :b_ad, :id), class: "nav-link"%>
+      <%= link_to 'Year', params.merge(a_order: params[:a_order], a_ad: params[:a_ad], b_order: 'year', b_ad: 'asc').permit(:a_order, :a_ad, :b_order, :b_ad, :id), class: "nav-link" %>
+      <%= link_to 'Last added', params.merge(a_order: params[:a_order], a_ad: params[:a_ad], b_order: 'created_at', b_ad: 'desc').permit(:a_order, :a_ad, :b_order, :b_ad, :id), class: "nav-link" %>
+      <%= link_to 'Last updated', params.merge(a_order: params[:a_order], a_ad: params[:a_ad], b_order: 'updated_at', b_ad: 'desc').permit(:a_order, :a_ad, :b_order, :b_ad, :id), class: "nav-link" %>
     </nav>
   </div>
 
   <div class="col mr-3 text-right align-self-center">
-    <% (val, cls) = (params[:ad].eql? 'asc') ? %w[desc down] : %w[asc down-alt]%>
-    <%= link_to '', params.merge(order: params[:order], ad: val).permit(:order, :ad), class: "fas fa-sort-alpha-#{cls}"%>
+    <% (val, cls) = (params[:b_ad].eql? 'asc') ? %w[desc down] : %w[asc down-alt]%>
+    <%= link_to '', params.merge(a_order: params[:a_order], a_ad: params[:a_ad], b_order: params[:b_order], b_ad: val).permit(:a_order, :a_ad, :b_order, :b_ad, :id), class: "fas fa-sort-alpha-#{cls}"%>
   </div>
 
   <div class="w-100"></div>

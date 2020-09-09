@@ -1,6 +1,12 @@
 class Author < ApplicationRecord
   # Scopes
-  scope :ordered, ->(attr) { Author.column_names.include?(attr) ? order(attr) : order(:name) }
+  scope :ordered, lambda { |attr, ad|
+    if Author.column_names.include?(attr)
+      order(ad.nil? || !(%w[asc desc].include? ad) ? attr : "#{attr} #{ad}")
+    else
+      order(ad.nil? || !(%w[asc desc].include? ad) ? :name : "name #{ad}")
+    end
+  }
 
   # Relations
   has_many :books

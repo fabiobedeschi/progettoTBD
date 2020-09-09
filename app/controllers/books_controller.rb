@@ -2,7 +2,7 @@ class BooksController < ApplicationController
   before_action :find_book, only: %i[show edit update destroy]
 
   def index
-    @books = Book.ordered(params[:order], params[:ad])
+    @books = Book.ordered(params[:b_order], params[:b_ad])
   end
 
   def show; end
