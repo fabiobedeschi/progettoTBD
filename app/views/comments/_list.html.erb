@@ -2,11 +2,14 @@
 <div class="card my-2">
   <div class="card-body">
     <div class="row">
-      <h5 class="card-title col">
+      <h5 class="card-title col-auto align-self-center">
         <%= link_to comment.user.username, library_path(comment.user.library) %>
       </h5>
+      <h6 class="card-title col-auto align-self-center">
+        (<%= comment.created_at.to_datetime.strftime('%H:%M - %m/%d/%Y') %>)
+      </h6>
       <% if @user.is_admin || comment.user.id == @user.id%>
-      <div class="col-auto">
+      <div class="col text-right">
         <%= link_to '', book_comment_path(comment.book, comment),
                     method: :delete, data: {confirm: "Are you sure?"},
                     class: 'btn btn-danger fas fa-times'%>

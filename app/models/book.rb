@@ -1,5 +1,12 @@
 class Book < ApplicationRecord
-  default_scope { order(:title) }
+  # Scopes
+  scope :ordered, lambda { |attr, ad|
+    if Book.column_names.include?(attr)
+      order(ad.nil? || !(%w[asc desc].include? ad) ? attr : "#{attr} #{ad}")
+    else
+      order(ad.nil? || !(%w[asc desc].include? ad) ? :title : "title #{ad}")
+    end
+  }
 
   # Relations
   belongs_to :author, optional: true

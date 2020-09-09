@@ -26,8 +26,8 @@
   <% if @author.books.size > 0 %>
   <hr>
   <div class="row">
-    <h4 class="col-12">From the author:</h4>
-    <%= render 'books/grid', {books: @author.books}%>
+    <h3 class="col-12">From this author:</h3>
+    <%= render 'books/grid', {books: @author.books.ordered(params[:order], params[:ad])}%>
   </div>
   <% end %>
 

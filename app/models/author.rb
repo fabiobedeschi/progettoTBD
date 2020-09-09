@@ -1,5 +1,6 @@
 class Author < ApplicationRecord
-  default_scope { order(:name) }
+  # Scopes
+  scope :ordered, ->(attr) { Author.column_names.include?(attr) ? order(attr) : order(:name) }
 
   # Relations
   has_many :books

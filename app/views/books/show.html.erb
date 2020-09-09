@@ -22,7 +22,7 @@
     <hr>
     <div class="row">
       <div class="col">
-        <p><%=  @book.plot  %></p>
+        <p><%= @book.plot %></p>
       </div>
     </div>
     <% end %>
@@ -33,13 +33,13 @@
       <% comm_count = @book.comments.size %>
       <% if comm_count > 0 %>
         <div class="col-12 mt-4 order-last">
-          <h4><%= comm_count %> <%= comm_count == 1 ? 'comment:' : 'comments:' %></h4>
-          <%= render 'comments/list', {comments: @book.comments} %>
+          <h3><%= comm_count %> <%= comm_count == 1 ? 'comment:' : 'comments:' %></h3>
+          <%= render 'comments/list', {comments: @book.comments.from_last} %>
         </div>
       <% end %>
 
       <div class="col-12 col-lg-2 order-first">
-        <h4 class="mb-3 mb-lg-auto">Leave a comment:</h4>
+        <h3 class="mb-3 mb-lg-auto">Leave a comment:</h3>
       </div>
       <div class="col order-1">
         <%= render 'comments/form' %>

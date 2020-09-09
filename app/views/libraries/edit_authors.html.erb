@@ -8,7 +8,7 @@
   <div class="row">
     <div class="col">
       <%= simple_form_for @library, url: update_authors_library_path(@library) do |f| %>
-        <%= f.association :authors, label: '', collection: Author.all, as: :check_boxes%>
+        <%= f.association :authors, label: '', collection: Author.order(:name), as: :check_boxes%>
         <%= f.button :submit, class: 'btn btn-primary'%>
       <% end %>
     </div>
