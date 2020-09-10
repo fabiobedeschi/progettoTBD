@@ -2,16 +2,16 @@
   <div class="col-auto">
     <nav class="nav nav-pills">
       <a class="nav-link disabled" aria-disabled="true">Order by:</a>
-      <%= link_to 'Name', params.merge(a_order: 'name', a_ad: 'asc', b_order: params[:b_order], b_ad: params[:b_ad]).permit(:a_order, :a_ad, :b_order, :b_ad, :id), class: "nav-link"%>
-      <%= link_to 'Date of birth', params.merge(a_order: 'dob', a_ad: 'asc', b_order: params[:b_order], b_ad: params[:b_ad]).permit(:a_order, :a_ad, :b_order, :b_ad, :id), class: "nav-link" %>
-      <%= link_to 'Last added', params.merge(a_order: 'created_at', a_ad: 'desc', b_order: params[:b_order], b_ad: params[:b_ad]).permit(:a_order, :a_ad, :b_order, :b_ad, :id), class: "nav-link" %>
-      <%= link_to 'Last updated', params.merge(a_order: 'updated_at', a_ad: 'desc', b_order: params[:b_order], b_ad: params[:b_ad]).permit(:a_order, :a_ad, :b_order, :b_ad, :id), class: "nav-link" %>
+      <%= link_to 'Name', params.merge(a_order: 'name', a_ad: 'asc').permit(:a_order, :a_ad, :b_order, :b_ad, :id), class: "nav-link"%>
+      <%= link_to 'Date of birth', params.merge(a_order: 'dob', a_ad: 'asc').permit(:a_order, :a_ad, :b_order, :b_ad, :id), class: "nav-link" %>
+      <%= link_to 'Last added', params.merge(a_order: 'created_at', a_ad: 'desc').permit(:a_order, :a_ad, :b_order, :b_ad, :id), class: "nav-link" %>
+      <%= link_to 'Last updated', params.merge(a_order: 'updated_at', a_ad: 'desc').permit(:a_order, :a_ad, :b_order, :b_ad, :id), class: "nav-link" %>
     </nav>
   </div>
 
   <div class="col mr-3 text-right align-self-center">
-    <% (val, cls) = (params[:a_ad].eql? 'asc') ? %w[desc down] : %w[asc down-alt]%>
-    <%= link_to '', params.merge(a_order: params[:a_order], a_ad: val, b_order: params[:b_order], b_ad: params[:b_ad]).permit(:a_order, :a_ad, :b_order, :b_ad, :id), class: "fas fa-sort-alpha-#{cls}"%>
+    <% (val, cls) = (params[:a_ad].eql? 'desc') ? %w[asc down-alt] : %w[desc down]%>
+    <%= link_to '', params.merge(a_order: params[:a_order], a_ad: val).permit(:a_order, :a_ad, :b_order, :b_ad, :id), class: "fas fa-sort-alpha-#{cls}"%>
   </div>
 
   <div class="w-100"></div>

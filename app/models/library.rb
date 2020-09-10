@@ -1,4 +1,14 @@
 class Library < ApplicationRecord
+  # Scopes
+  scope :ordered, lambda { |attr, ad|
+    ad = ad.nil? || !(%w[asc desc].include? ad) ? '' : ad
+    if Library.column_names.include?(attr)
+      order("#{attr} #{ad}")
+    else
+      joins(:user).order("users.username #{ad}")
+    end
+  }
+
   # Relations
   belongs_to :user, optional: false
   has_and_belongs_to_many :books

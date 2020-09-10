@@ -3,7 +3,7 @@ class LibrariesController < ApplicationController
   before_action :user_library, only: %i[edit_authors edit_books update_authors update_books]
 
   def index
-    @libraries = Library.all.order('updated_at DESC')
+    @libraries = Library.ordered(params[:order], params[:ad])
   end
 
   def show; end
@@ -24,6 +24,7 @@ class LibrariesController < ApplicationController
 
   def update(dest)
     if @library.update(library_params)
+      @library.update_attribute(:updated_at, Time.now)
       redirect_to @library
     else
       redirect_to "libraries/edit_#{dest}"
